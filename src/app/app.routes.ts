@@ -1,7 +1,10 @@
 import { Routes } from '@angular/router';
-import { LayoutPagePage } from './layout/layout-page/layout-page.page';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { UserComponent } from './component/user/user.component';
 
 export const routes: Routes = [
-  { path: '', component: LayoutPagePage, title: 'SimpleCrm' },
-  { path: '**', redirectTo: '' }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full', },
+  { path: 'dashboard', component: DashboardComponent, title: 'Dashboard' },
+  { path: 'user', component: UserComponent, title: 'User' },
+  { path: '**', redirectTo: 'dashboard' },
 ];

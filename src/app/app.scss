@@ -1,0 +1,71 @@
+mat-drawer-container {
+  height: 100vh;
+}
+
+.example-icon {
+  padding: 0 14px;
+  color: #E8EAF6;
+  display: flex;
+  align-items: center;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.sidenav {
+  width: 300px;
+  background: #3F51B5;
+  color: #E8EAF6;
+}
+
+.logo-container {
+  border-bottom: 1px solid #E8EAF6;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+mat-toolbar,
+mat-tootlbar-row {
+  min-height: 56px;
+  height: 56px;
+}
+
+.menu-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    mat-icon {
+      margin-right: 16px;
+    }
+
+    &:hover {
+      background: #303F9F;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.router-container {
+  padding-left: 56px;
+  padding-top: 16px;
+}
