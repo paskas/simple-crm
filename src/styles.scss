@@ -1,18 +1,15 @@
 @use '@angular/material' as mat;
 
 :root {
-  @include mat.theme((
-    color: (
-      primary: mat.$cyan-palette,
-      tertiary: mat.$orange-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
-  @include mat.toolbar-overrides((
-    container-background-color:#3F51B5,
-    container-text-color: #E8EAF6,
-  ));
+  @include mat.theme((color: (primary: mat.$cyan-palette,
+        tertiary: mat.$orange-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+  @include mat.toolbar-overrides((container-background-color:#3F51B5,
+      container-text-color: #E8EAF6,
+    ));
 }
 
 body {
@@ -23,5 +20,24 @@ body {
   margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mr-16 {
+  margin-right: 16px;
+}
+
+.ml-16 {
+  margin-left: 16px;
+}
+
+.full-width {
+  width: 100%;
+}

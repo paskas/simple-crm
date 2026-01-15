@@ -1,0 +1,10 @@
+@use '@angular/material' as mat;
+
+.add-user {
+  position: absolute;
+  right: 56px;
+  bottom: 56px;
+  @include mat.fab-overrides((container-color: #3F51B5,
+      container-elevation-shadow: -2px -2px 5px 0px rgba(0, 0, 0, 0.4),
+    ));
+}
