@@ -16,8 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { inject } from '@angular/core';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
-
-
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
@@ -48,12 +46,13 @@ export class DialogAddUserComponent {
     this.dialogRef.close();
   }
 
-  saveUser() {
+  async saveUser() {
     if (!this.user.birthDate) {
       return;
     }
-    const d = this.user.birthDate;
-    const birthday = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
-    console.log(birthday);
+    const userData = this.user.toFirestore();
+    const docRef = await addDoc(collection(this.firestore, 'users'), userData);
+    console.log('Adding user finished, id:', docRef.id);
+    this.dialogRef.close();
   }
 }
