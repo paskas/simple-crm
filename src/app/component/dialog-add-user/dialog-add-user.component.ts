@@ -15,6 +15,7 @@ import { User } from '../../models/user.class';
 import { MatIconModule } from '@angular/material/icon';
 import { inject } from '@angular/core';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -29,6 +30,7 @@ import { Firestore, collection, addDoc } from '@angular/fire/firestore';
     MatDatepickerModule,
     MatIconModule,
     FormsModule,
+    MatProgressBarModule,
   ],
   templateUrl: './dialog-add-user.component.html',
   styleUrl: './dialog-add-user.component.scss',
@@ -37,6 +39,7 @@ import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 export class DialogAddUserComponent {
   private readonly firestore = inject(Firestore);
   user = new User();
+  loading = false;
 
   constructor(
     private readonly dialogRef: MatDialogRef<DialogAddUserComponent>
@@ -50,9 +53,15 @@ export class DialogAddUserComponent {
     if (!this.user.birthDate) {
       return;
     }
-    const userData = this.user.toFirestore();
-    const docRef = await addDoc(collection(this.firestore, 'users'), userData);
-    console.log('Adding user finished, id:', docRef.id);
+    this.loading = true;
+    try {
+      const userData = this.user.toFirestore();
+      await addDoc(collection(this.firestore, 'users'), userData);
+    } catch (error) {
+      console.error('Saving user failed', error);
+    } finally {
+      this.loading = false;
+    }
     this.dialogRef.close();
   }
 }
