@@ -18,3 +18,12 @@ export class User {
     };
   }
 }
+
+export interface FirestoreUser {
+  firstName: string;
+  lastName: string;
+  street: string;
+  city: string;
+  zipCode: number | null;
+  birthday: string | null;
+}
