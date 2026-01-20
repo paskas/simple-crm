@@ -30,6 +30,12 @@ button {
   min-height: 56px;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    height: 48px;
+  }
 }
 
 mat-toolbar,
@@ -67,5 +73,6 @@ mat-tootlbar-row {
 
 .router-container {
   padding-left: 56px;
+  padding-right: 56px;
   padding-top: 16px;
 }
