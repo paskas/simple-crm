@@ -27,6 +27,7 @@ export class UserComponent {
   displayedColumns: string[] = [
     'firstName',
     'lastName',
+    'email',
     'street',
     'city',
     'zipCode',

@@ -1,6 +1,7 @@
 export class User {
   firstName = '';
   lastName = '';
+  email = '';
   street = '';
   city = '';
   birthDate: Date | null = null;
@@ -11,6 +12,7 @@ export class User {
     return {
       firstName: this.firstName,
       lastName: this.lastName,
+      email: this.email,
       street: this.street,
       city: this.city,
       zipCode: this.zipCode,
@@ -22,6 +24,7 @@ export class User {
 export interface FirestoreUser {
   firstName: string;
   lastName: string;
+  email: string;
   street: string;
   city: string;
   zipCode: number | null;
