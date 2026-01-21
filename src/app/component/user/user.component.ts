@@ -8,11 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { FirestoreUser } from '../../models/user.class';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { ActivatedRoute, RouterLink } from "@angular/router";
 
 
 @Component({
   selector: 'app-user',
-  imports: [MatButtonModule, MatIconModule, MatDialogModule, MatTableModule, AsyncPipe],
+  imports: [MatButtonModule, MatIconModule, MatDialogModule, MatTableModule, AsyncPipe, RouterLink],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })
@@ -20,19 +21,25 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 export class UserComponent {
   private firestore = inject(Firestore);
   private dialog = inject(MatDialog);
+  private route = inject(ActivatedRoute)
 
   private userProfileCollection = collection(this.firestore, 'users');
-  users$ = collectionData(this.userProfileCollection) as Observable<FirestoreUser[]>;
-
+  users$ = collectionData(this.userProfileCollection, { idField: 'firebaseId' }) as Observable<FirestoreUser[]>;
+  userId = this.route.snapshot.paramMap.get('id');
   displayedColumns: string[] = [
-    'firstName',
-    'lastName',
+    'Name',
     'email',
     'street',
     'city',
     'zipCode',
     'birthday',
   ];
+
+  ngOnInit(): void {
+    this.users$.subscribe(users => {
+      console.log(users);
+    });
+  }
 
   openDialog(): void {
     this.dialog.open(DialogAddUserComponent);

@@ -1,0 +1,35 @@
+@if (user$ | async; as user) {
+<mat-card class="user-header-card" appearance="outlined">
+
+  <button matIconButton class="bt-edit-detail bt-edit-detail--white"  [matMenuTriggerFor]="userMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item (click)="editUserMenu()">Edit</button>
+  </mat-menu>
+
+  <mat-card-footer class="footer-profil">
+    <img mat-card-image src="./assets/img/avatar-user.png" alt="">
+    <div>
+      <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+      <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+    </div>
+  </mat-card-footer>
+</mat-card>
+
+<mat-card class="user-detail-card mt-32" appearance="outlined">
+  <mat-card-title>Address</mat-card-title>
+  <mat-card-content>
+    {{ user.street }} <br>
+    {{ user.zipCode }} {{ user.city }}
+  </mat-card-content>
+
+  <button matIconButton class="bt-edit-detail" [matMenuTriggerFor]="detailMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #detailMenu="matMenu">
+    <button mat-menu-item (click)="editDetailMenu()">Edit</button>
+  </mat-menu>
+
+</mat-card>
+}

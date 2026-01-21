@@ -1,0 +1,45 @@
+.user-header-card {
+  width: 100%;
+  height: 300px;
+  background-color: #3F51B5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-profil {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  background-size: cover;
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  mat-card-title,
+  mat-card-subtitle {
+    color: white;
+  }
+}
+
+.user-detail-card {
+  width: 100%;
+  position: relative;
+
+  mat-card-title {
+    padding: 16px;
+  }
+}
+
+.bt-edit-detail {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bt-edit-detail--white {
+  color: white;
+}
