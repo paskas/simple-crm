@@ -10,7 +10,6 @@ import { FirestoreUser } from '../../models/user.class';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { ActivatedRoute, RouterLink } from "@angular/router";
 
-
 @Component({
   selector: 'app-user',
   imports: [MatButtonModule, MatIconModule, MatDialogModule, MatTableModule, AsyncPipe, RouterLink],

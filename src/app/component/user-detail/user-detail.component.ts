@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
-import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 import { DialogEditDetailsComponent } from '../dialog-edit-details/dialog-edit-details.component';
 
 @Component({
@@ -33,10 +32,16 @@ export class UserDetailComponent {
   );
 
   editUserMenu() {
-    this.dialog.open(DialogEditUserComponent);
+    let userId = this.route.snapshot.paramMap.get('id')!;
+    this.dialog.open(DialogEditDetailsComponent, {
+      data: { userId },
+    });
   }
 
   editDetailMenu() {
-    this.dialog.open(DialogEditDetailsComponent);
+    let userId = this.route.snapshot.paramMap.get('id')!;
+    this.dialog.open(DialogEditDetailsComponent, {
+      data: { userId },
+    });
   }
 }

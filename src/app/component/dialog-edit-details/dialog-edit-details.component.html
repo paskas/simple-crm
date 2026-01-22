@@ -1,1 +1,38 @@
-<p>dialog-edit-details works!</p>
+@if (loading) {<mat-progress-bar mode="indeterminate"></mat-progress-bar>}
+<h1 mat-dialog-title> Edit User Details</h1>
+<mat-dialog-content>
+  <div>
+    <mat-form-field class="full-width">
+      <mat-label>Birth Date</mat-label>
+      <input [disabled]="loading" matInput [matDatepicker]="datepicker" [(ngModel)]="user.birthDate" name="birthDate" />
+      <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker>
+        <mat-datepicker-actions>
+          <button matButton matDatepickerCancel>Cancel</button>
+          <button matButton="elevated" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="full-width">
+      <mat-label>Street + House No.</mat-label>
+      <input [disabled]="loading" matInput [(ngModel)]="user.street" name="street" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="mr-16">
+      <mat-label>Zip Code</mat-label>
+      <input [disabled]="loading" matInput [(ngModel)]="user.zipCode" name="zipCode" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input [disabled]="loading" matInput [(ngModel)]="user.city" name="city" />
+    </mat-form-field>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="ml-16" matButton (click)="cancel()">Cancel</button>
+  <button matButton (click)="saveUser()" cdkFocusInitial>Update</button>
+</mat-dialog-actions>
