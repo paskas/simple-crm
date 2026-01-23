@@ -14,8 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { User, FirestoreUser } from '../../models/user.class';
-import { doc, updateDoc, Firestore } from '@angular/fire/firestore';
-import { docData } from '@angular/fire/firestore';
+import { Firestore, doc, updateDoc, docData } from '@angular/fire/firestore';
 import { firstValueFrom } from 'rxjs';
 
 @Component({

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditDetailsComponent } from '../dialog-edit-details/dialog-edit-details.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -33,7 +34,7 @@ export class UserDetailComponent {
 
   editUserMenu() {
     let userId = this.route.snapshot.paramMap.get('id')!;
-    this.dialog.open(DialogEditDetailsComponent, {
+    this.dialog.open(DialogEditUserComponent, {
       data: { userId },
     });
   }
